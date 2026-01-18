@@ -1,0 +1,447 @@
+/* --- SECTION BASE --- */
+.services {
+  position: relative;
+  padding: 100px 20px;
+  background-color: var(--color-secondary);
+  overflow: hidden;
+  /* Pour assurer que les éléments animés ne dépassent pas */
+}
+
+/* --- BACKGROUND DECORATION --- */
+.services-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+}
+
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: var(--color-primary);
+  top: -100px;
+  right: -100px;
+}
+
+.orb-2 {
+  width: 300px;
+  height: 300px;
+  background: #ffffff;
+  bottom: -50px;
+  left: -100px;
+  opacity: 0.05;
+}
+
+.bg-grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+}
+
+/* --- CONTAINER & LAYOUT --- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- ANIMATIONS SCROLL --- */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-100 {
+  transition-delay: 0.1s;
+}
+
+.delay-200 {
+  transition-delay: 0.2s;
+}
+
+.delay-300 {
+  transition-delay: 0.3s;
+}
+
+/* --- HEADER --- */
+.services-header {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.services-subtitle {
+  font-family: var(--font-body);
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.services-title {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  color: var(--color-white);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.text-gold {
+  color: var(--color-primary);
+}
+
+.title-separator {
+  width: 60px;
+  height: 3px;
+  background: var(--color-primary);
+  margin: 20px auto;
+  border-radius: 2px;
+}
+
+.services-description {
+  color: var(--color-gray);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* --- PRICING GRID --- */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+/* --- PRICING CARD --- */
+.pricing-card {
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Effet de brillance au survol */
+.card-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right,
+      transparent,
+      rgba(255, 255, 255, 0.05),
+      transparent);
+  transform: skewX(-20deg);
+  transition: left 0.5s;
+}
+
+.pricing-card:hover .card-shine {
+  left: 150%;
+  transition: left 0.7s ease-in-out;
+}
+
+.pricing-card-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.icon-wrapper {
+  width: 50px;
+  height: 50px;
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.card-icon {
+  font-size: 1.5rem;
+}
+
+.pricing-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--color-white);
+  margin: 0;
+}
+
+.pricing-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+/* --- PRICE LIST ITEMS --- */
+.price-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.price-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 18px;
+}
+
+.price-info {
+  flex: 1;
+  display: flex;
+  align-items: baseline;
+  overflow: hidden;
+  /* Nécessaire pour les points */
+}
+
+.price-name {
+  font-family: var(--font-body);
+  color: var(--color-white);
+  font-weight: 500;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+/* Points de suite (Leader dots) */
+.price-dots {
+  flex: 1;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
+  margin: 0 10px;
+  position: relative;
+  top: -5px;
+}
+
+.price-value {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.surcharge-notice {
+  margin-top: 25px;
+  padding: 12px;
+  background: rgba(212, 175, 55, 0.05);
+  border-radius: 8px;
+  color: var(--color-primary-light);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+/* --- SPECIAL OFFER --- */
+.special-offer {
+  grid-column: 1 / -1;
+  /* Prend toute la largeur */
+  background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+  border: 1px solid var(--color-primary);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.offer-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 60%);
+  animation: pulse 4s infinite ease-in-out;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.offer-content-wrapper {
+  position: relative;
+  z-index: 1;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.offer-badge {
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 1.2rem;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+  transform: rotate(-15deg);
+}
+
+.offer-text {
+  flex: 1;
+}
+
+.special-offer-title {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-size: 2rem;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.special-offer-description {
+  color: var(--color-white);
+  opacity: 0.8;
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.offer-price-container {
+  text-align: right;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px 25px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.offer-currency {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  vertical-align: top;
+}
+
+.offer-amount {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 0.9;
+}
+
+.offer-period {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--color-gray);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 5px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    /* Passage à une seule colonne */
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .services-title {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .offer-content-wrapper {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .offer-badge {
+    margin-bottom: 10px;
+  }
+
+  .offer-price-container {
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .services-header {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-title {
+    font-size: 2.2rem;
+  }
+
+  .pricing-card {
+    padding: 25px 20px;
+  }
+
+  .pricing-card-title {
+    font-size: 1.5rem;
+  }
+
+  .price-name {
+    font-size: 0.9rem;
+  }
+
+  .price-value {
+    font-size: 1.1rem;
+  }
+}

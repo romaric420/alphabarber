@@ -1,0 +1,327 @@
+/* =========================================
+   CONTACT SECTION - STYLE PREMIUM
+   ========================================= */
+
+/* --- CONFIGURATION GLOBALE --- */
+.contact {
+  position: relative;
+  padding: 100px 0;
+  background-color: var(--color-secondary);
+  /* Fond de base noir */
+  overflow: hidden;
+}
+
+/* --- BACKGROUND DESIGN (NOUVEAU) --- */
+.contact-bg-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* 1. Motif rayé subtil (Style Barbier/Costume) */
+.contact-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(45deg,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px,
+      transparent 10px);
+  opacity: 0.6;
+}
+
+/* 2. Lueurs colorées pour la profondeur */
+.contact-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+}
+
+.glow-1 {
+  /* Lueur Dorée en Haut Gauche */
+  top: -100px;
+  left: -100px;
+  width: 600px;
+  height: 600px;
+  background: var(--color-primary);
+}
+
+.glow-2 {
+  /* Lueur plus froide en Bas Droite pour le contraste */
+  bottom: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: #ffffff;
+  opacity: 0.05;
+}
+
+/* --- EN-TÊTE DE SECTION --- */
+.contact-header {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  display: block;
+  margin-bottom: 15px;
+}
+
+.contact-title {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  color: var(--color-white);
+  line-height: 1.1;
+}
+
+.text-gold {
+  color: var(--color-primary);
+}
+
+/* --- GRILLE PRINCIPALE --- */
+.contact-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 50px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  /* Important pour être au-dessus du fond */
+}
+
+/* --- COLONNE INFOS --- */
+.contact-info-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* INFO CARD */
+.info-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  /* Fond légèrement plus visible pour détacher du nouveau background */
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateX(10px);
+  border-color: var(--color-primary);
+  background: rgba(30, 30, 30, 0.8);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.icon-box {
+  width: 50px;
+  height: 50px;
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  flex-shrink: 0;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.info-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-gray);
+  margin-bottom: 5px;
+}
+
+.info-value {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--color-white);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.info-value.link {
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.info-value.link:hover {
+  color: var(--color-primary);
+}
+
+.info-note {
+  font-size: 0.75rem;
+  color: var(--color-primary);
+  margin-top: 5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- SOCIAL --- */
+.social-section {
+  margin-top: 10px;
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.social-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-gray);
+  margin-bottom: 15px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.social-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.social-btn:hover {
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+  border-color: var(--color-primary);
+}
+
+/* --- MAP --- */
+.contact-map-column {
+  height: 100%;
+  min-height: 450px;
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  position: relative;
+  background: #1a1a1a;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: contrast(1.05);
+}
+
+/* --- MOBILE --- */
+.mobile-cta-container {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .contact-content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contact-map-column {
+    min-height: 350px;
+    order: -1;
+  }
+
+  .contact-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact {
+    padding: 60px 0;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+  }
+
+  .info-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    padding: 25px 15px;
+  }
+
+  .contact-map-column {
+    min-height: 300px;
+  }
+
+  .mobile-cta-container {
+    display: block;
+    margin-top: 15px;
+  }
+
+  .mobile-call-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: var(--color-primary);
+    color: var(--color-secondary);
+    padding: 18px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+  }
+}
