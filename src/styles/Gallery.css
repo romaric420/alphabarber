@@ -1,16 +1,15 @@
 /* =========================================
-   GALLERY - COMPACT LUXE
+   GALLERY - COMPACT LUXE & RESPONSIVE
    ========================================= */
 
 .gallery {
   position: relative;
   padding: 80px 0;
-  /* Padding réduit */
   background-color: #0b0b0b;
   overflow: hidden;
 }
 
-/* Texture de fond */
+/* Texture de fond subtile */
 .gallery-bg-pattern {
   position: absolute;
   inset: 0;
@@ -21,7 +20,7 @@
   pointer-events: none;
 }
 
-/* HEADER */
+/* --- HEADER --- */
 .gallery-header {
   display: flex;
   justify-content: space-between;
@@ -63,7 +62,7 @@
   font-size: 1rem;
 }
 
-/* NAVIGATION BUTTONS */
+/* --- NAVIGATION BUTTONS --- */
 .gallery-nav {
   display: flex;
   gap: 15px;
@@ -97,35 +96,46 @@
   cursor: default;
 }
 
-/* TRACK SCROLL */
+/* --- TRACK SCROLL (Le coeur du responsive) --- */
 .gallery-track-wrapper {
   position: relative;
   z-index: 2;
   margin-bottom: 40px;
+  width: 100%;
 }
 
 .gallery-track {
   display: flex;
   gap: 30px;
   overflow-x: auto;
-  /* Centrage dynamique */
-  padding: 20px calc((100vw - 1200px) / 2) 40px;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
+
+  /* Calcul savant pour centrer le début du track sur les grands écrans
+     Container standard ~1200px (ou var(--container-width))
+  */
+  padding: 20px calc((100vw - 1200px) / 2) 40px;
 }
 
 .gallery-track::-webkit-scrollbar {
   display: none;
 }
 
-/* CARTE (Taille Ajustée) */
+.track-spacer {
+  min-width: 20px;
+  /* Espace de fin */
+}
+
+/* --- CARTE (Base Desktop) --- */
 .gallery-card {
-  /* TAILLE RÉDUITE POUR ÊTRE PLUS ÉLÉGANT */
-  min-width: 300px;
-  height: 420px;
+  /* Taille Desktop par défaut */
+  min-width: 320px;
+  height: 450px;
+
   flex-shrink: 0;
   scroll-snap-align: start;
+  /* Aligne la carte au début du padding */
   position: relative;
   transition: transform 0.4s ease;
 }
@@ -161,7 +171,7 @@
   transform: translateY(-5px);
 }
 
-/* TEXTE SUR IMAGE */
+/* --- TEXTE SUR IMAGE --- */
 .card-overlay {
   position: absolute;
   bottom: 0;
@@ -196,11 +206,7 @@
   margin: 0;
 }
 
-.track-spacer {
-  min-width: 20px;
-}
-
-/* PROGRESS BAR */
+/* --- PROGRESS BAR --- */
 .bottom-controls {
   display: flex;
   align-items: center;
@@ -225,18 +231,30 @@
   box-shadow: 0 0 10px var(--color-primary);
 }
 
-/* RESPONSIVE */
 .mobile-nav {
   display: none;
 }
 
+/* =========================================
+   MEDIA QUERIES (RESPONSIVE CARRÉ)
+   ========================================= */
+
+/* --- TABLET / LAPTOP (1250px et moins) --- */
 @media (max-width: 1250px) {
   .gallery-track {
-    padding-left: 20px;
-    padding-right: 20px;
+    /* On arrête le calcul centré et on passe en padding fixe propre */
+    padding: 20px 40px 40px 40px;
+    gap: 25px;
+  }
+
+  .gallery-card {
+    min-width: 280px;
+    /* Un peu plus petit pour tablette */
+    height: 400px;
   }
 }
 
+/* --- TABLET VERTICAL / PETIT LAPTOP (992px et moins) --- */
 @media (max-width: 992px) {
   .gallery-header {
     flex-direction: column;
@@ -254,6 +272,7 @@
 
   .mobile-nav {
     display: flex;
+    gap: 15px;
   }
 
   .mobile-nav button {
@@ -271,21 +290,58 @@
     max-width: 100%;
   }
 
-  /* Sur tablette */
-  .gallery-card {
-    min-width: 280px;
-    height: 380px;
+  .gallery-track {
+    padding: 20px 30px 40px 30px;
   }
 }
 
-@media (max-width: 576px) {
+/* --- MOBILE (768px et moins) --- */
+@media (max-width: 768px) {
+  .gallery {
+    padding: 60px 0;
+  }
+
   .gallery-title {
     font-size: 2.2rem;
   }
 
-  /* Sur mobile, carte large pour bien voir */
+  .gallery-track {
+    padding: 10px 20px 30px 20px;
+    /* Padding standard mobile */
+    gap: 15px;
+    /* Espace réduit entre les cartes */
+    scroll-padding-left: 20px;
+    /* IMPORTANT: Aligne le snap avec le padding gauche */
+  }
+
   .gallery-card {
-    min-width: 80vw;
-    height: 400px;
+    /* RÈGLE D'OR MOBILE : 
+       85vw permet de voir la carte entière + un bout de la suivante (incite au scroll)
+    */
+    min-width: auto;
+    /* Reset du min-width desktop */
+    width: 85vw;
+    height: 380px;
+    /* Hauteur confortable */
+  }
+
+  .card-overlay {
+    padding: 20px 15px;
+  }
+
+  .card-title-lg {
+    font-size: 1.2rem;
+  }
+}
+
+/* --- PETIT MOBILE (iPhone SE, etc.) --- */
+@media (max-width: 380px) {
+  .gallery-title {
+    font-size: 1.8rem;
+  }
+
+  .gallery-card {
+    height: 320px;
+    /* Adapter la hauteur pour petits écrans */
   }
 }

@@ -10,115 +10,35 @@ const Gallery = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Images locales (1-16 sauf 4 et 7)
+  // Images locales
   const galleryItems = [
-    {
-      id: 1,
-      title: 'Coupe en Action',
-      titleEn: 'Cut in Progress',
-      category: 'Haircut',
-      img: '/images/1.jpg'
-    },
-    {
-      id: 2,
-      title: 'Taille de Barbe',
-      titleEn: 'Beard Trim',
-      category: 'Beard',
-      img: '/images/2.jpg'
-    },
-    {
-      id: 3,
-      title: 'Précision Expert',
-      titleEn: 'Expert Precision',
-      category: 'Haircut',
-      img: '/images/3.jpg'
-    },
-    {
-      id: 5,
-      title: 'Savoir-Faire',
-      titleEn: 'Craftsmanship',
-      category: 'Expertise',
-      img: '/images/5.jpg'
-    },
-    {
-      id: 6,
-      title: 'Dégradé Parfait',
-      titleEn: 'Perfect Fade',
-      category: 'Fade',
-      img: '/images/6.jpg'
-    },
-    {
-      id: 8,
-      title: 'Nos Produits',
-      titleEn: 'Our Products',
-      category: 'Products',
-      img: '/images/8.jpg'
-    },
-    {
-      id: 9,
-      title: 'Poste de Travail',
-      titleEn: 'Workstation',
-      category: 'Salon',
-      img: '/images/9.jpg'
-    },
-    {
-      id: 10,
-      title: 'Notre Équipement',
-      titleEn: 'Our Equipment',
-      category: 'Salon',
-      img: '/images/10.jpg'
-    },
-    {
-      id: 11,
-      title: 'L\'Enseigne',
-      titleEn: 'The Sign',
-      category: 'Brand',
-      img: '/images/11.jpg'
-    },
-    {
-      id: 12,
-      title: 'Outils du Métier',
-      titleEn: 'Tools of the Trade',
-      category: 'Tools',
-      img: '/images/12.jpg'
-    },
-    {
-      id: 13,
-      title: 'Ciseaux Pro',
-      titleEn: 'Pro Scissors',
-      category: 'Tools',
-      img: '/images/13.jpg'
-    },
-    {
-      id: 14,
-      title: 'Notre Salon',
-      titleEn: 'Our Salon',
-      category: 'Ambiance',
-      img: '/images/14.jpg'
-    },
-    {
-      id: 15,
-      title: 'Kit Professionnel',
-      titleEn: 'Professional Kit',
-      category: 'Tools',
-      img: '/images/15.jpg'
-    },
-    {
-      id: 16,
-      title: 'L\'Atelier',
-      titleEn: 'The Workshop',
-      category: 'Salon',
-      img: '/images/16.jpg'
-    }
+    { id: 1, title: 'Coupe en Action', titleEn: 'Cut in Progress', category: 'Haircut', img: '/images/1.jpg' },
+    { id: 2, title: 'Taille de Barbe', titleEn: 'Beard Trim', category: 'Beard', img: '/images/2.jpg' },
+    { id: 3, title: 'Précision Expert', titleEn: 'Expert Precision', category: 'Haircut', img: '/images/3.jpg' },
+    { id: 5, title: 'Savoir-Faire', titleEn: 'Craftsmanship', category: 'Expertise', img: '/images/5.jpg' },
+    { id: 6, title: 'Dégradé Parfait', titleEn: 'Perfect Fade', category: 'Fade', img: '/images/6.jpg' },
+    { id: 8, title: 'Nos Produits', titleEn: 'Our Products', category: 'Products', img: '/images/8.jpg' },
+    { id: 9, title: 'Poste de Travail', titleEn: 'Workstation', category: 'Salon', img: '/images/9.jpg' },
+    { id: 10, title: 'Notre Équipement', titleEn: 'Our Equipment', category: 'Salon', img: '/images/10.jpg' },
+    { id: 11, title: 'L\'Enseigne', titleEn: 'The Sign', category: 'Brand', img: '/images/11.jpg' },
+    { id: 12, title: 'Outils du Métier', titleEn: 'Tools of the Trade', category: 'Tools', img: '/images/12.jpg' },
+    { id: 13, title: 'Ciseaux Pro', titleEn: 'Pro Scissors', category: 'Tools', img: '/images/13.jpg' },
+    { id: 14, title: 'Notre Salon', titleEn: 'Our Salon', category: 'Ambiance', img: '/images/14.jpg' },
+    { id: 15, title: 'Kit Professionnel', titleEn: 'Professional Kit', category: 'Tools', img: '/images/15.jpg' },
+    { id: 16, title: 'L\'Atelier', titleEn: 'The Workshop', category: 'Salon', img: '/images/16.jpg' }
   ];
 
-  // Fonction de scroll manuel
+  // Scroll manuel
   const scroll = (direction) => {
     const { current } = scrollRef;
     if (current) {
-      const cardWidth = current.children[0].clientWidth + 30;
+      // Sur mobile, on scroll d'une largeur d'écran, sur desktop d'une carte
+      const scrollAmount = window.innerWidth < 768
+        ? current.clientWidth * 0.85
+        : current.children[0].clientWidth + 30;
+
       current.scrollBy({
-        left: direction === 'left' ? -cardWidth : cardWidth,
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
         behavior: 'smooth',
       });
     }
@@ -130,18 +50,20 @@ const Gallery = () => {
       const { scrollLeft, scrollWidth, clientWidth } = current;
       const maxScroll = scrollWidth - clientWidth;
 
-      const progress = (scrollLeft / maxScroll) * 100;
+      // Calcul progression
+      const progress = maxScroll > 0 ? (scrollLeft / maxScroll) * 100 : 0;
       setScrollProgress(Math.min(100, Math.max(0, progress)));
 
+      // Gestion boutons
       setCanScrollLeft(scrollLeft > 10);
       setCanScrollRight(scrollLeft < maxScroll - 10);
     }
   };
 
-  // Auto scroll
+  // Auto scroll (se désactive au survol)
   useEffect(() => {
     let interval;
-    if (!isPaused) {
+    if (!isPaused && window.innerWidth > 768) { // Optionnel: désactiver auto-scroll sur mobile si gênant
       interval = setInterval(() => {
         const { current } = scrollRef;
         if (current) {
@@ -153,7 +75,7 @@ const Gallery = () => {
             current.scrollBy({ left: cardWidth, behavior: 'smooth' });
           }
         }
-      }, 3000);
+      }, 4000); // 4 secondes pour être moins agressif
     }
     return () => clearInterval(interval);
   }, [isPaused]);
@@ -163,7 +85,8 @@ const Gallery = () => {
     if (current) {
       current.addEventListener('scroll', handleScroll);
       window.addEventListener('resize', handleScroll);
-      handleScroll();
+      // Initial check
+      setTimeout(handleScroll, 100);
     }
     return () => {
       if (current) current.removeEventListener('scroll', handleScroll);
@@ -187,11 +110,15 @@ const Gallery = () => {
             <button
               className={`nav-btn prev ${!canScrollLeft ? 'disabled' : ''}`}
               onClick={() => scroll('left')}
+              aria-label="Previous image"
             >←</button>
             <button
               className={`nav-btn next ${!canScrollRight ? 'disabled' : ''}`}
               onClick={() => scroll('right')}
-            >→</button>
+              aria-label="Next image"
+            >
+              →
+            </button>
           </div>
         </div>
       </div>
@@ -200,6 +127,7 @@ const Gallery = () => {
         className="gallery-track-wrapper"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)} // Pause au toucher sur mobile
       >
         <div className="gallery-track" ref={scrollRef}>
           {galleryItems.map((item) => (
@@ -224,6 +152,7 @@ const Gallery = () => {
               </div>
             </div>
           ))}
+          {/* Spacer pour le scroll padding droit */}
           <div className="track-spacer"></div>
         </div>
       </div>
@@ -233,8 +162,8 @@ const Gallery = () => {
           <div className="progress-bar" style={{ width: `${scrollProgress}%` }}></div>
         </div>
         <div className="gallery-nav mobile-nav">
-          <button onClick={() => scroll('left')} disabled={!canScrollLeft}>←</button>
-          <button onClick={() => scroll('right')} disabled={!canScrollRight}>→</button>
+          <button onClick={() => scroll('left')} disabled={!canScrollLeft} aria-label="Previous">←</button>
+          <button onClick={() => scroll('right')} disabled={!canScrollRight} aria-label="Next">→</button>
         </div>
       </div>
     </section>
