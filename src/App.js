@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import Gallery from './components/Gallery';
+import VideoShowcase from './components/VideoShowcase';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -18,6 +19,7 @@ function App() {
           <Hero />
           <Services />
           <Gallery />
+          <VideoShowcase />
           <About />
           <Contact />
         </main>

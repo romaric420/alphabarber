@@ -85,6 +85,19 @@ export const translations = {
       hoursTime: "10:00 - 20:00",
       legalNotice: "Mentions Légales",
       privacy: "Confidentialité"
+    },
+    video: {
+      subtitle: "Notre Univers",
+      title: "Découvrez",
+      titleHighlight: "Notre Savoir-Faire",
+      description: "Plongez dans l'atmosphère unique d'Alpha Barber Beauty. Une expérience de coiffure premium où chaque détail compte.",
+      loading: "Chargement...",
+      play: "Regarder",
+      pause: "Pause",
+      ariaLabel: "Vidéo de présentation Alpha Barber Beauty",
+      feature1: "Visite Virtuelle",
+      feature2: "Techniques Exclusives",
+      feature3: "Ambiance Premium"
     }
   },
   en: {
@@ -171,6 +184,19 @@ export const translations = {
       hoursTime: "10:00 - 20:00",
       legalNotice: "Legal Notice",
       privacy: "Privacy"
+    },
+    video: {
+      subtitle: "Our World",
+      title: "Discover",
+      titleHighlight: "Our Expertise",
+      description: "Immerse yourself in the unique atmosphere of Alpha Barber Beauty. A premium grooming experience where every detail matters.",
+      loading: "Loading...",
+      play: "Watch",
+      pause: "Pause",
+      ariaLabel: "Alpha Barber Beauty presentation video",
+      feature1: "Virtual Tour",
+      feature2: "Exclusive Techniques",
+      feature3: "Premium Atmosphere"
     }
   }
 };

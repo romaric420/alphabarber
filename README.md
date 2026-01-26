@@ -1,149 +1,87 @@
-# Alpha Barber Beauty - Site Web Professionnel
+# Alpha Barber Beauty - Mise à jour avec Section Vidéo
 
-Site web moderne et responsive pour le salon de coiffure Alpha Barber Beauty situé à Malakoff.
+## 🎬 Nouveautés ajoutées
 
-## 🌟 Caractéristiques
+### 1. Composant VideoShowcase
+Un nouveau composant `VideoShowcase.js` a été créé avec :
+- **Lazy loading intelligent** : La vidéo ne se charge que lorsque l'utilisateur approche de la section (200px avant)
+- **Intersection Observer** : Détecte quand la section devient visible
+- **Preload "none"** : La vidéo n'est pas chargée au démarrage de la page
+- **Placeholder animé** : Un loader s'affiche pendant le chargement
+- **Bouton play/pause** stylé avec le design doré du site
+- **Design responsive** : S'adapte à toutes les tailles d'écran
 
-- **Design Premium** : Thème noir et or élégant
-- **Bilingue** : Support français et anglais
-- **Responsive** : Adapté à tous les écrans (mobile, tablette, desktop)
-- **Animations** : Effets visuels modernes et fluides
-- **Performance** : Optimisé pour le chargement rapide
+### 2. SEO Optimisé (index.html)
+Le fichier `index.html` a été complètement refait avec :
+- **Meta tags complets** : description, keywords, robots
+- **Open Graph & Twitter Cards** : Partage optimisé sur les réseaux sociaux
+- **Geo tags** : Référencement local pour Malakoff
+- **Schema.org Structured Data** :
+  - `BarberShop` : Informations complètes sur le commerce
+  - `BreadcrumbList` : Navigation structurée
+  - `VideoObject` : Référencement de la vidéo
+- **Balises hreflang** : Support multilingue FR/EN
+- **Preconnect** : Chargement optimisé des polices
 
-## 📁 Structure du Projet
+## 📁 Fichiers à placer
 
-```
-alphabarber-website/
-├── public/
-│   ├── index.html
-│   ├── manifest.json
-│   └── images/              # Ajouter vos images ici
-├── src/
-│   ├── components/
-│   │   ├── Navbar.js
-│   │   ├── Hero.js
-│   │   ├── Services.js
-│   │   ├── Gallery.js
-│   │   ├── About.js
-│   │   ├── Contact.js
-│   │   └── Footer.js
-│   ├── context/
-│   │   └── LanguageContext.js
-│   ├── data/
-│   │   └── translations.js
-│   ├── styles/
-│   │   ├── global.css
-│   │   ├── Navbar.css
-│   │   ├── Hero.css
-│   │   ├── Services.css
-│   │   ├── Gallery.css
-│   │   ├── About.css
-│   │   ├── Contact.css
-│   │   └── Footer.css
-│   ├── App.js
-│   └── index.js
-└── package.json
-```
+### Dans `/public/video/`
+- `showcase.mp4` - Votre vidéo de 53MB
 
-## 🚀 Installation
+### Dans `/public/images/`
+- `video-poster.jpg` - Image d'aperçu de la vidéo (capture d'écran du début de la vidéo)
+- `og-image.jpg` - Image pour le partage social (1200x630px recommandé)
 
-1. **Installer les dépendances :**
-   ```bash
-   npm install
-   ```
+## 🔧 Installation
 
-2. **Lancer le serveur de développement :**
-   ```bash
-   npm start
-   ```
+1. Remplacez le fichier `public/index.html` par le nouveau
+2. Copiez le dossier `src/` complet pour écraser l'existant
+3. Créez le dossier `public/video/` et placez-y votre vidéo `showcase.mp4`
+4. Créez une image poster `public/images/video-poster.jpg`
 
-3. **Créer la version de production :**
-   ```bash
-   npm run build
-   ```
+## ⚡ Optimisations Performance
 
-## 🖼️ Ajouter vos Images
+La vidéo de 53MB ne ralentira PAS le chargement initial car :
 
-Les placeholders sont prêts pour vos images. Pour les remplacer :
+1. **`preload="none"`** - Le navigateur ne télécharge rien au départ
+2. **Lazy loading** - La vidéo ne se charge que quand visible
+3. **Intersection Observer** - Démarre le chargement 200px avant la vue
+4. **Source dynamique** - L'URL n'est ajoutée que quand nécessaire
 
-### Hero Section
-Dans `src/components/Hero.js`, remplacez le placeholder par :
-```jsx
-<img src="/images/hero-image.jpg" alt="Alpha Barber" />
-```
+### Score Google PageSpeed attendu
+- La vidéo n'affectera pas le LCP (Largest Contentful Paint)
+- Le FCP (First Contentful Paint) reste rapide
+- Le TBT (Total Blocking Time) n'est pas impacté
 
-### Galerie
-Dans `src/components/Gallery.js`, ajoutez vos images dans le tableau `galleryItems` :
-```jsx
-{ id: 1, image: '/images/gallery-1.jpg', title: 'Coupe Classique' }
-```
+## 📱 Traductions ajoutées
 
-### Section About
-Dans `src/components/About.js`, remplacez le placeholder par votre image du salon.
+Les traductions FR et EN ont été ajoutées pour :
+- `video.subtitle`
+- `video.title`
+- `video.titleHighlight`
+- `video.description`
+- `video.loading`
+- `video.play`
+- `video.pause`
+- `video.ariaLabel`
+- `video.feature1`
+- `video.feature2`
+- `video.feature3`
 
-### Carte Google Maps
-Dans `src/components/Contact.js`, remplacez le placeholder par une iframe Google Maps :
-```jsx
-<iframe 
-  src="https://www.google.com/maps/embed?pb=!1m18!..."
-  width="100%" 
-  height="100%" 
-  style={{ border: 0 }}
-  allowFullScreen=""
-  loading="lazy"
-  title="Alpha Barber Location"
-></iframe>
-```
+## 🎨 Design
 
-## 📞 Informations du Salon
+Le composant suit exactement le même style que le reste du site :
+- Couleurs dorées et noires
+- Bordures décoratives
+- Animations fluides
+- Effets de hover
+- Coins décoratifs style barbershop
 
-Les informations sont centralisées dans `src/data/translations.js` :
-- **Adresse** : 28 Bd de Stalingrad, 92240 Malakoff
-- **Téléphone** : 01 75 32 35 77
-- **Horaires** : Tous les jours 10h - 20h
-- **Instagram** : @alphabarber_beauty
+## ✅ Checklist avant déploiement
 
-## 🎨 Personnalisation des Couleurs
-
-Les couleurs sont définies dans `src/styles/global.css` :
-```css
-:root {
-  --color-primary: #FFD700;      /* Or */
-  --color-secondary: #000000;    /* Noir */
-  --color-primary-light: #FFE55C;
-  --color-primary-dark: #CCB000;
-}
-```
-
-## 💰 Tarifs
-
-Les tarifs sont modifiables dans `src/data/translations.js` dans l'objet `prices`.
-
-## 🌐 Traductions
-
-Pour modifier les textes, éditez `src/data/translations.js` :
-- `fr` : Textes en français
-- `en` : Textes en anglais
-
-## 📱 Responsive Design
-
-Le site est optimisé pour :
-- Mobile : < 576px
-- Tablette : 576px - 992px
-- Desktop : > 992px
-
-## ✨ Animations
-
-- Fade in/out sur le scroll
-- Hover effects sur les cartes
-- Carousel automatique dans la galerie
-- Animation du logo et de la navigation
-
-## 📄 Licence
-
-© 2024 Alpha Barber Beauty. Tous droits réservés.
-
----
-
-Développé avec ❤️ pour Alpha Barber Beauty
-# alphabarber
+- [ ] Placer `showcase.mp4` dans `/public/video/`
+- [ ] Créer `video-poster.jpg` (première frame de la vidéo)
+- [ ] Créer `og-image.jpg` pour les réseaux sociaux
+- [ ] Vérifier l'URL canonique dans index.html
+- [ ] Tester sur mobile
+- [ ] Vérifier le score PageSpeed après déploiement

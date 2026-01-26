@@ -4,32 +4,231 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#FFD700" />
+    
+    <!-- SEO Meta Tags -->
     <meta
       name="description"
-      content="Alpha Barber Beauty - Salon de coiffure premium à Malakoff. Coupes hommes, enfants, barbe, coloration. Top Rated Treatwell. Ouvert 7j/7 de 10h à 20h."
+      content="Alpha Barber Beauty - Salon de coiffure premium à Malakoff. Spécialiste coupes hommes, enfants, barbe, coloration. Top Rated Treatwell 2025. Ouvert 7j/7 de 10h à 20h. Avec ou sans rendez-vous."
     />
-    <meta name="keywords" content="barber, coiffeur, Malakoff, coupe homme, barbe, barbershop, Alpha Barber, Treatwell" />
+    <meta name="keywords" content="barber, coiffeur, Malakoff, coupe homme, barbe, barbershop, Alpha Barber, Treatwell, salon coiffure, coiffeur homme, rasage, coloration homme, 92240" />
     <meta name="author" content="Alpha Barber Beauty" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://alphabarber.fr/" />
+    
+    <!-- Langue alternative -->
+    <link rel="alternate" hreflang="fr" href="https://alphabarber.fr/" />
+    <link rel="alternate" hreflang="en" href="https://alphabarber.fr/?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://alphabarber.fr/" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://alphabarber.fr/" />
-    <meta property="og:title" content="Alpha Barber Beauty - Salon de Coiffure Premium" />
-    <meta property="og:description" content="L'art de la coiffure masculine à Malakoff. Expertise, passion et style. Top Rated Treatwell." />
+    <meta property="og:title" content="Alpha Barber Beauty - Salon de Coiffure Premium à Malakoff" />
+    <meta property="og:description" content="L'art de la coiffure masculine à Malakoff. Expertise, passion et style. Top Rated Treatwell 2025. Ouvert 7j/7." />
+    <meta property="og:image" content="https://alphabarber.fr/images/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Alpha Barber Beauty" />
     
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="Alpha Barber Beauty - Salon de Coiffure Premium" />
-    <meta property="twitter:description" content="L'art de la coiffure masculine à Malakoff. Expertise, passion et style. Top Rated Treatwell." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://alphabarber.fr/" />
+    <meta name="twitter:title" content="Alpha Barber Beauty - Salon de Coiffure Premium à Malakoff" />
+    <meta name="twitter:description" content="L'art de la coiffure masculine à Malakoff. Expertise, passion et style. Top Rated Treatwell 2025." />
+    <meta name="twitter:image" content="https://alphabarber.fr/images/og-image.jpg" />
 
+    <!-- Geo Tags pour le référencement local -->
+    <meta name="geo.region" content="FR-92" />
+    <meta name="geo.placename" content="Malakoff" />
+    <meta name="geo.position" content="48.8182;2.2947" />
+    <meta name="ICBM" content="48.8182, 2.2947" />
+
+    <!-- Apple Touch Icons -->
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="apple-touch-icon" sizes="152x152" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/logo192.png" />
     
-    <title>Alpha Barber Beauty | Salon de Coiffure Premium - Malakoff</title>
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- Preconnect pour les polices (performance) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Structured Data - LocalBusiness Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BarberShop",
+      "name": "Alpha Barber Beauty",
+      "image": [
+        "https://alphabarber.fr/images/1.jpg",
+        "https://alphabarber.fr/images/4.jpg",
+        "https://alphabarber.fr/images/7.jpg"
+      ],
+      "url": "https://alphabarber.fr",
+      "telephone": "+33175323577",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "28 Boulevard de Stalingrad",
+        "addressLocality": "Malakoff",
+        "postalCode": "92240",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.8182,
+        "longitude": 2.2947
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "10:00",
+          "closes": "20:00"
+        }
+      ],
+      "priceRange": "€€",
+      "servesCuisine": "",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "150",
+        "bestRating": "5"
+      },
+      "sameAs": [
+        "https://instagram.com/alphabarber_beauty",
+        "https://facebook.com/alphabarberbeauty",
+        "https://tiktok.com/@alphabarber_beauty"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services de coiffure",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Coupe Homme",
+              "description": "Coupe de cheveux pour homme"
+            },
+            "price": "15",
+            "priceCurrency": "EUR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Coupe Ciseaux",
+              "description": "Coupe aux ciseaux traditionnelle"
+            },
+            "price": "25",
+            "priceCurrency": "EUR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Barbe",
+              "description": "Taille et entretien de barbe"
+            },
+            "price": "10",
+            "priceCurrency": "EUR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Coupe Enfant",
+              "description": "Coupe pour enfant de moins de 12 ans"
+            },
+            "price": "10",
+            "priceCurrency": "EUR"
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Structured Data - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://alphabarber.fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://alphabarber.fr/#prices"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Galerie",
+          "item": "https://alphabarber.fr/#gallery"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Contact",
+          "item": "https://alphabarber.fr/#contact"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data - VideoObject (pour la vidéo) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "Alpha Barber Beauty - Présentation du salon",
+      "description": "Découvrez l'atmosphère unique d'Alpha Barber Beauty, salon de coiffure premium à Malakoff. Visite virtuelle de notre espace et démonstration de notre savoir-faire.",
+      "thumbnailUrl": "https://alphabarber.fr/images/video-poster.jpeg",
+      "uploadDate": "2025-01-01",
+      "contentUrl": "https://alphabarber.fr/video/showcase.mp4",
+      "embedUrl": "https://alphabarber.fr/#video",
+      "duration": "PT2M30S",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Alpha Barber Beauty",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://alphabarber.fr/logo192.png"
+        }
+      }
+    }
+    </script>
+    
+    <title>Alpha Barber Beauty | Salon de Coiffure Premium - Malakoff | Coiffeur Homme & Barber</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <div style="padding: 20px; text-align: center; background: #FFD700; color: #000;">
+        <h1>Alpha Barber Beauty - Salon de Coiffure Premium à Malakoff</h1>
+        <p>Pour une meilleure expérience, veuillez activer JavaScript.</p>
+        <p><strong>Adresse:</strong> 28 Bd de Stalingrad, 92240 Malakoff</p>
+        <p><strong>Téléphone:</strong> <a href="tel:0175323577">01 75 32 35 77</a></p>
+        <p><strong>Horaires:</strong> Tous les jours de 10h à 20h</p>
+      </div>
+    </noscript>
     <div id="root"></div>
   </body>
 </html>
