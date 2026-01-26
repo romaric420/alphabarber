@@ -38,15 +38,7 @@ Le fichier `index.html` a été complètement refait avec :
 2. Copiez le dossier `src/` complet pour écraser l'existant
 3. Créez le dossier `public/video/` et placez-y votre vidéo `showcase.mp4`
 4. Créez une image poster `public/images/video-poster.jpg`
-
-## ⚡ Optimisations Performance
-
-La vidéo de 53MB ne ralentira PAS le chargement initial car :
-
-1. **`preload="none"`** - Le navigateur ne télécharge rien au départ
-2. **Lazy loading** - La vidéo ne se charge que quand visible
-3. **Intersection Observer** - Démarre le chargement 200px avant la vue
-4. **Source dynamique** - L'URL n'est ajoutée que quand nécessaire
+ajoutée que quand nécessaire
 
 ### Score Google PageSpeed attendu
 - La vidéo n'affectera pas le LCP (Largest Contentful Paint)
